@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+    <style>
+        table {
+            border: 1px solid #000;
+        }
+
+        th, td {
+            border: 1px dotted #555;
+        }
+    </style>
+</head>
+<body>
+<!--private Integer id;-->
+
+<!--private String author;-->
+
+<!--private String name;-->
+
+<!--@Column(nullable = false)-->
+<!--private int quantity;-->
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>AUTHOR</th>
+        <th>NAME</th>
+        <th>QUANTITY</th>
+    </tr>
+    <tr th:each="b : ${books}">
+        <td th:text="${b.id}"></td>
+        <td th:text="${b.author}"></td>
+        <td>
+            <a th:href="@{/library/{id}(id = ${b.id})}" th:text="${b.name}"></a>
+        </td>
+        <td th:text="${b.quantity}"></td>
+    </tr>
+
+</table>
+</body>
+</html>
